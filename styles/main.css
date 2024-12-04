@@ -198,6 +198,10 @@ input::placeholder {
   color: #8899a8;
 }
 
+input.error {
+  border: 2px solid rgb(255, 186, 186);
+}
+
 .habbit__form {
   display: flex;
   gap: 15px;
