@@ -134,6 +134,7 @@ function rerender(activeHabitId) {
   if (!activeHabit) {
     return;
   }
+  document.location.replace(document.location.pathname + "#" + activeHabitId);
   rerenderMenu(activeHabit);
   rerenderHead(activeHabit);
   rerenderContent(activeHabit);
@@ -209,5 +210,11 @@ function addHabit(event) {
 /* init */
 (() => {
   loadData();
-  rerender(habits[0].id);
+  const hashId = Number(document.location.hash.replace("#", ""));
+  const urlHabit = habits.find((habit) => habit.id == hashId);
+  if (urlHabit) {
+    rerender(urlHabit.id);
+  } else {
+    rerender(habits[0].id);
+  }
 })();
