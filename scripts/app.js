@@ -16,6 +16,9 @@ const page = {
     daysContainer: document.getElementById("days"),
     nextDay: document.querySelector(".habbit__day"),
   },
+  popup: {
+    index: document.getElementById("add-habit-popup"),
+  },
 };
 
 /* utils */
@@ -135,6 +138,16 @@ function removeDay(index) {
   });
   rerender(globalActiveHabitId);
   saveData();
+}
+
+/* pop-up */
+function togglePopup() {
+  const isClosed = page.popup.index.classList.contains("cover_hidden");
+  if (isClosed) {
+    page.popup.index.classList.remove("cover_hidden");
+  } else {
+    page.popup.index.classList.add("cover_hidden");
+  }
 }
 
 /* init */
