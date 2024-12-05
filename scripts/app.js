@@ -18,6 +18,7 @@ const page = {
   },
   popup: {
     index: document.getElementById("add-habit-popup"),
+    iconField: document.querySelector('.popup__form input[name="icon"]'),
   },
 };
 
@@ -140,7 +141,7 @@ function removeDay(index) {
   saveData();
 }
 
-/* pop-up */
+/* pop-up opening */
 function togglePopup() {
   const isClosed = page.popup.index.classList.contains("cover_hidden");
   if (isClosed) {
@@ -148,6 +149,14 @@ function togglePopup() {
   } else {
     page.popup.index.classList.add("cover_hidden");
   }
+}
+
+/* working with habits */
+function setIcon(context, icon) {
+  page.popup.iconField.value = icon;
+  const activeIcon = document.querySelector(".icon.icon_active");
+  activeIcon.classList.remove("icon_active");
+  context.classList.add("icon_active");
 }
 
 /* init */
